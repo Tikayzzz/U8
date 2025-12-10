@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class MovieCharacter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     private String character;
 
@@ -40,33 +40,41 @@ public class MovieCharacter {
 
     public MovieCharacter() {}
 
-    public Long getId() {
+    //getter setter
+
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
+
     public String getCharacter() {
         return character;
     }
-
-    public void setCharacter(String character) {}
+    public void setCharacter(String character) {
+        this.character = character;       
+    }
 
     public String getAlias() {
         return alias;
     }
-
-    public void setAlias(String alias) {}
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
 
     public int getPosition() {
         return position;
     }
-
-    public void setPosition(int position) {}
+    public void setPosition(int position) {
+        this.position = position;
+    }
 
     public Person getPerson() {
         return person;
     }
-    public void setPerson(Person person) {}
+    public void setPerson(Person person) {
+        this.person = person;
+    }
 
 }

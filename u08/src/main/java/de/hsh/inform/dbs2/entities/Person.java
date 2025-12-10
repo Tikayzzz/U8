@@ -9,7 +9,7 @@ import java.util.List;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @OneToMany(mappedBy = "person")
     private List<MovieCharacter> characters;
@@ -22,14 +22,16 @@ public class Person {
 
     public Person() {}
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
     public String getName() {
         return name;
     }
-    public void setName(String name) {}
+    public void setName(String name) {
+        this.name = name;
+    }
 }
