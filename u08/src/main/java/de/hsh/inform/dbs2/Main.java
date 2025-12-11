@@ -1,7 +1,9 @@
 package de.hsh.inform.dbs2;
 
+import de.hsh.inform.dbs2.entities.Person;
 import de.hsh.inform.dbs2.gui.SearchMovieDialog;
 import de.hsh.inform.dbs2.gui.SearchMovieDialogCallback;
+import de.hsh.inform.dbs2.manager.PersonManager;
 import de.hsh.inform.dbs2.util.EMFSingleton;
 import jakarta.persistence.EntityManagerFactory;
 import javax.swing.*;
@@ -25,9 +27,12 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        SearchMovieDialogCallback callback = new SearchMovieDialogCallback();
-        
 
+        PersonManager personManager = new PersonManager();
+        Person newPerson = personManager.addPerson("John Doe");
+
+
+        SearchMovieDialogCallback callback = new SearchMovieDialogCallback();
         SearchMovieDialog searchDialog = new SearchMovieDialog(callback);
         
 

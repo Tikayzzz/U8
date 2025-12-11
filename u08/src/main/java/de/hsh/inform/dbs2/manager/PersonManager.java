@@ -53,4 +53,21 @@ public class PersonManager {
             }
         }
     }
+
+    public Person addPerson(String name) {
+        EntityManager em = EMFSingleton.getEntityManagerFactory().createEntityManager();
+        Person person = new Person(name);
+
+        try {
+            em.getTransaction().begin();
+            em.persist(person);
+            em.getTransaction().commit();
+            return person;
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) em.getTransaction().rollback();
+            throw e;
+        } finally {
+            if (em != null && em.isOpen()) em.close();
+        }
+    }
 }
