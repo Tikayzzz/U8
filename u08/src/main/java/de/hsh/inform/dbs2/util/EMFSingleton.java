@@ -19,8 +19,8 @@ public class EMFSingleton {
 			props.load(input);
 
 			Map<String, String> overrideProps = new HashMap<>();
-			overrideProps.put("jakarta.persistence.jdbc.url", props.getProperty("db.url"));
-			overrideProps.put("jakarta.persistence.jdbc.user", props.getProperty("db.user"));
+			overrideProps.put("jakarta.persistence.jdbc.url", props.getProperty("db.uri"));
+			overrideProps.put("jakarta.persistence.jdbc.user", props.getProperty("db.username"));
 			overrideProps.put("jakarta.persistence.jdbc.password", props.getProperty("db.password"));
 
 			emf = Persistence.createEntityManagerFactory("movie", overrideProps);
