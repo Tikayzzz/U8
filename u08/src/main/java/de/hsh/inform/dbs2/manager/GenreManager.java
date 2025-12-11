@@ -16,7 +16,7 @@ public class GenreManager {
     public List<String> getGenres() {
         EntityManager em = EMFSingleton.getEntityManagerFactory().createEntityManager();
         try {
-            TypedQuery<String> query = em.createQuery("SELECT g.name FROM Genre g ORDER BY g.name", String.class);
+            TypedQuery<String> query = em.createQuery("SELECT g.genre FROM Genre g ORDER BY g.genre", String.class);
             return query.getResultList();
         } finally {
             if (em != null && em.isOpen()) {

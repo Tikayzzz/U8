@@ -88,7 +88,7 @@ public class MovieManager {
 
             // Genres setzen
             if (dto.getGenres() != null) {
-                TypedQuery<Genre> genreQuery = em.createQuery("SELECT g FROM Genre g WHERE g.name IN :names", Genre.class);
+                TypedQuery<Genre> genreQuery = em.createQuery("SELECT g FROM Genre g WHERE g.genre IN :names", Genre.class);
                 genreQuery.setParameter("names", dto.getGenres());
                 List<Genre> genres = genreQuery.getResultList();
                 movie.setGenres(new HashSet<>(genres));
