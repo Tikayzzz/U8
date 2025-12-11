@@ -10,8 +10,8 @@ import jakarta.persistence.EntityTransaction;
 
 import java.util.List;
 
-public class Main {
 
+public class Main {
     public static void main(String [] args) {
         createMovie();
         printMovies();
@@ -22,10 +22,10 @@ public class Main {
         createPerson();
         printPersons();
     }
-
+    
     public static void createMovie() {
-        try (EntityManager em = EMFSingleton.getEntityManagerFactory().createEntityManager()) {
-            EntityTransaction trx = em.getTransaction();
+    try (EntityManager em = EMFSingleton.getEntityManagerFactory().createEntityManager()) {
+        EntityTransaction trx = em.getTransaction();
             try {
                 trx.begin();
                 Movie movie = new Movie("Star Wars", "C", 1977);
